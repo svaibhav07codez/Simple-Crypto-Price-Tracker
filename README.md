@@ -1,36 +1,118 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚀 Crypto Price Tracker
 
-## Getting Started
+A simple **Crypto Price Tracker** built with **Next.js** that fetches live cryptocurrency prices using **CoinCap API**. Includes **search, auto-refresh, and manual refresh** functionality with **React Query** for state management.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 📌 Features
+✅ Live cryptocurrency price updates  
+✅ Search bar to filter displayed cryptocurrencies  
+✅ Auto-refresh every 60 seconds  
+✅ Manual **"Refresh Prices"** button with loading spinner  
+✅ **Beautiful UI** with responsive design  
+✅ **Next.js + React Query** for optimized performance  
+✅ Fully documented with **Docusaurus**  
+
+---
+
+## 📂 Project Structure
+```
+crypto-price-tracker/
+│── web-app/          # Next.js application
+│   ├── pages/        # Main Next.js pages
+│   ├── components/   # Reusable components (e.g., Loader, CryptoTable)
+│   ├── styles/       # Global & component-specific styles
+│   ├── utils/        # Utility functions (e.g., API fetch)
+│   ├── public/       # Static assets
+│   ├── package.json  # Project dependencies
+│   ├── next.config.js # Next.js configuration
+│── docs/             # Docusaurus documentation
+│   ├── docs/         # Markdown documentation files
+│   ├── docusaurus.config.js # Docusaurus setup
+│── README.md         # Project documentation
+│── .gitignore        # Git ignore file
+│── vercel.json       # Vercel deployment config
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🛠️ Tech Stack
+- **Frontend**: Next.js, React, Tailwind CSS  
+- **State Management**: React Query  
+- **API**: CoinCap API  
+- **Deployment**: Vercel  
+- **Documentation**: Docusaurus  
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🚀 Getting Started
 
-To learn more about Next.js, take a look at the following resources:
+### 1️⃣ Clone the Repository
+```bash
+git clone https://github.com/your-username/crypto-price-tracker.git
+cd crypto-price-tracker/web-app
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 2️⃣ Install Dependencies
+```bash
+npm install
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 3️⃣ Run the Development Server
+```bash
+npm run dev
+```
+- Open **http://localhost:3000** in your browser.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🔌 API Integration
+This project uses **CoinCap API** to fetch live crypto prices.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### API Endpoint
+```
+https://api.coincap.io/v2/assets?ids=bitcoin,ethereum,dogecoin,solana,cardano
+```
+
+### How It Works
+1. Data is fetched using **React Query** for efficient caching.
+2. **Auto-refreshes every 60 seconds**.
+3. **Manual "Refresh Prices" button** fetches updated prices.
+
+---
+
+## 🛠️ State Management (React Query)
+React Query is used for:
+✅ **Efficient API caching** (avoids unnecessary re-fetching)  
+✅ **Auto-refresh every 60s**  
+✅ **Manual refresh handling**  
+
+### Setup (`_app.js`)
+```jsx
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+const queryClient = new QueryClient();
+
+function MyApp({ Component, pageProps }) {
+  return (
+    <QueryClientProvider client={queryClient}>
+      <Component {...pageProps} />
+    </QueryClientProvider>
+  );
+}
+
+export default MyApp;
+```
+
+## 📖 Docusaurus Documentation
+A complete **developer guide** is available in the `/docs` folder.
+
+### Run Docusaurus Locally
+```bash
+cd docs
+npm install
+npm run start
+```
+Open **http://localhost:3001** to view the documentation.
+
+---
