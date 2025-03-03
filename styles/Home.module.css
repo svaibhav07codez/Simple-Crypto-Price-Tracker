@@ -1,0 +1,30 @@
+.container {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .search-bar {
+    padding: 8px;
+    width: 60%;
+    margin: 10px;
+  }
+  
+  .refresh-button {
+    background: #ff9800;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .crypto-table {
+    width: 80%;
+    margin: auto;
+    border-collapse: collapse;
+  }
+  
+  .crypto-table th, .crypto-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+  }
+  
